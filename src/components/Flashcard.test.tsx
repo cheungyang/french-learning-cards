@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import React from 'react';
 import { Flashcard } from './Flashcard';
 import { Card } from '../hooks/useFlashcards';
@@ -31,6 +31,10 @@ describe('Flashcard Component', () => {
       speak: speakMock,
     });
     speakMock.mockClear();
+  });
+
+  afterEach(() => {
+    cleanup();
   });
 
   it('renders front of flashcard with French word and speaker button', () => {
