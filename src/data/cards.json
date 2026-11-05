@@ -1,0 +1,82 @@
+[
+  {
+    "id": "card-001",
+    "french_word": "pomme",
+    "english_translation": "apple",
+    "gender": "f",
+    "part_of_speech": "noun",
+    "example_sentence_fr": "J'aime manger une pomme rouge."
+  },
+  {
+    "id": "card-002",
+    "french_word": "soleil",
+    "english_translation": "sun",
+    "gender": "m",
+    "part_of_speech": "noun",
+    "example_sentence_fr": "Le soleil brille aujourd'hui."
+  },
+  {
+    "id": "card-003",
+    "french_word": "manger",
+    "english_translation": "to eat",
+    "gender": null,
+    "part_of_speech": "verb",
+    "example_sentence_fr": "Nous voulons manger ensemble."
+  },
+  {
+    "id": "card-004",
+    "french_word": "grand",
+    "english_translation": "tall / big",
+    "gender": null,
+    "part_of_speech": "adjective",
+    "example_sentence_fr": "Il habite dans un grand bâtiment."
+  },
+  {
+    "id": "card-005",
+    "french_word": "bonjour",
+    "english_translation": "hello / good day",
+    "gender": null,
+    "part_of_speech": "phrase",
+    "example_sentence_fr": "Bonjour, comment allez-vous ?"
+  },
+  {
+    "id": "card-006",
+    "french_word": "maison",
+    "english_translation": "house",
+    "gender": "f",
+    "part_of_speech": "noun",
+    "example_sentence_fr": "La maison est très grande."
+  },
+  {
+    "id": "card-007",
+    "french_word": "livre",
+    "english_translation": "book",
+    "gender": "m",
+    "part_of_speech": "noun",
+    "example_sentence_fr": "Je lis un livre intéressant."
+  },
+  {
+    "id": "card-008",
+    "french_word": "parler",
+    "english_translation": "to speak",
+    "gender": null,
+    "part_of_speech": "verb",
+    "example_sentence_fr": "Elle aime parler français."
+  },
+  {
+    "id": "card-009",
+    "french_word": "petit",
+    "english_translation": "small / little",
+    "gender": null,
+    "part_of_speech": "adjective",
+    "example_sentence_fr": "Un petit chat dort ici."
+  },
+  {
+    "id": "card-010",
+    "french_word": "s'il vous plaît",
+    "english_translation": "please",
+    "gender": null,
+    "part_of_speech": "phrase",
+    "example_sentence_fr": "Un café, s'il vous plaît."
+  }
+]
