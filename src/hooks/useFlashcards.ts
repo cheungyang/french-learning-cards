@@ -10,6 +10,8 @@ export interface Card {
   example_sentence_fr: string;
 }
 
+const defaultCards: Card[] = cardsData as unknown as Card[];
+
 export function shuffleCards<T>(array: T[]): T[] {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -19,7 +21,7 @@ export function shuffleCards<T>(array: T[]): T[] {
   return shuffled;
 }
 
-export function useFlashcards(initialCards: Card[] = cardsData as unknown as Card[]) {
+export function useFlashcards(initialCards: Card[] = defaultCards) {
   const [cards] = useState<Card[]>(() => shuffleCards(initialCards));
   const [currentIndex, setCurrentIndex] = useState(0);
 
