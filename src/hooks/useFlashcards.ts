@@ -34,6 +34,7 @@ export function useFlashcards(initialCards: Card[] = cardsData as Card[]) {
     currentCard,
     hasNext,
     nextCard,
+    cardsViewed: currentIndex,
     cards,
   };
 }
