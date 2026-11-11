@@ -1,4 +1,3 @@
-// @vitest-environment jsdom
 import { describe, it, expect } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import { useFlashcards } from './useFlashcards';
@@ -30,6 +29,7 @@ describe('useFlashcards', () => {
     expect(result.current.currentCard).not.toBeNull();
     expect(result.current.currentCard).toEqual(result.current.cards[0]);
     expect(result.current.hasNext).toBe(true);
+    expect(result.current.cardsViewed).toBe(0);
   });
 
   it('updates currentCard to next item when nextCard is called', () => {
@@ -44,6 +44,7 @@ describe('useFlashcards', () => {
     expect(result.current.currentCard).not.toEqual(firstCard);
     expect(result.current.currentCard).toEqual(secondCardInList);
     expect(result.current.hasNext).toBe(true);
+    expect(result.current.cardsViewed).toBe(1);
   });
 
   it('sets currentCard to null and hasNext to false when nextCard is called on the last card', () => {
@@ -70,5 +71,6 @@ describe('useFlashcards', () => {
     // hasNext becomes false and currentCard becomes null
     expect(result.current.hasNext).toBe(false);
     expect(result.current.currentCard).toBeNull();
+    expect(result.current.cardsViewed).toBe(totalCards);
   });
 });

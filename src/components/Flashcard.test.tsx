@@ -1,9 +1,8 @@
 // @vitest-environment jsdom
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
-import React from 'react';
 import { Flashcard } from './Flashcard';
-import { Card } from '../hooks/useFlashcards';
+import type { Card } from '../hooks/useFlashcards';
 
 const mockCard: Card = {
   id: 'test-card-99',
@@ -56,7 +55,7 @@ describe('Flashcard Component', () => {
     expect(cardElement.className).toContain('flipped');
     expect(screen.getByText('hello')).toBeDefined();
     expect(screen.getByText('phrase')).toBeDefined();
-    expect(screen.getByText('Bonjour le monde!')).toBeDefined();
+    expect(screen.getByText('Bonjour le monde!').textContent).toBe('Bonjour le monde!');
 
     // Clicking again flips it back
     fireEvent.click(container);
