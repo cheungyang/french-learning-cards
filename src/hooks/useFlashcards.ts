@@ -22,16 +22,18 @@ export function shuffleCards<T>(array: T[]): T[] {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    const temp = shuffled[i];
+    shuffled[i] = shuffled[j]!;
+    shuffled[j] = temp!;
   }
   return shuffled;
 }
 
-export function useFlashcards(initialCards: Card[] = cardsData as Card[]): UseFlashcardsReturn {
+export function useFlashcards(initialCards: Card[] = cardsData as unknown as Card[]): UseFlashcardsReturn {
   const [cards] = useState<Card[]>(() => shuffleCards(initialCards));
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const currentCard = currentIndex < cards.length ? cards[currentIndex] : null;
+  const currentCard = currentIndex < cards.length ? (cards[currentIndex] ?? null) : null;
   const hasNext = currentIndex < cards.length;
 
   const nextCard = useCallback(() => {
@@ -46,3 +48,5 @@ export function useFlashcards(initialCards: Card[] = cardsData as Card[]): UseFl
     cards,
   };
 }
+
+export default useFlashcards;

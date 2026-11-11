@@ -13,7 +13,7 @@ export const Flashcard: FC<FlashcardProps> = ({ card }) => {
     setIsFlipped((prev) => !prev);
   };
 
-  const handleSpeakerClick = (e: MouseEvent) => {
+  const handleSpeakerClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       const utterance = new SpeechSynthesisUtterance(card.french_word);
