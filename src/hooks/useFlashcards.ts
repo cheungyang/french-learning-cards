@@ -10,6 +10,14 @@ export interface Card {
   example_sentence_fr: string;
 }
 
+export interface UseFlashcardsReturn {
+  currentCard: Card | null;
+  nextCard: () => void;
+  hasNext: boolean;
+  cardsViewed: number;
+  cards: Card[];
+}
+
 export function shuffleCards<T>(array: T[]): T[] {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -19,12 +27,13 @@ export function shuffleCards<T>(array: T[]): T[] {
   return shuffled;
 }
 
-export function useFlashcards(initialCards: Card[] = cardsData as Card[]) {
+export function useFlashcards(initialCards: Card[] = cardsData as unknown as Card[]): UseFlashcardsReturn {
   const [cards] = useState<Card[]>(() => shuffleCards(initialCards));
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const currentCard = currentIndex < cards.length ? cards[currentIndex] : null;
   const hasNext = currentIndex < cards.length;
+  const cardsViewed = currentIndex;
 
   const nextCard = useCallback(() => {
     setCurrentIndex((prev) => Math.min(prev + 1, cards.length));
@@ -34,6 +43,7 @@ export function useFlashcards(initialCards: Card[] = cardsData as Card[]) {
     currentCard,
     hasNext,
     nextCard,
+    cardsViewed,
     cards,
   };
 }

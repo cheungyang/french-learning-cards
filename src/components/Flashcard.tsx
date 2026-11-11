@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
-import { Card } from '../hooks/useFlashcards';
+import { useState } from 'react';
+import type { FC, MouseEvent } from 'react';
+import type { Card } from '../hooks/useFlashcards';
 import './Flashcard.css';
 
 export interface FlashcardProps {
   card: Card;
 }
 
-export const Flashcard: React.FC<FlashcardProps> = ({ card }) => {
+export const Flashcard: FC<FlashcardProps> = ({ card }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleCardClick = () => {
     setIsFlipped((prev) => !prev);
   };
 
-  const handleSpeakerClick = (e: React.MouseEvent) => {
+  const handleSpeakerClick = (e: MouseEvent) => {
     e.stopPropagation();
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       const utterance = new SpeechSynthesisUtterance(card.french_word);

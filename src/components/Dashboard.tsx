@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { useFlashcards, Card } from '../hooks/useFlashcards';
+import { useState } from 'react';
+import type { FC } from 'react';
+import { useFlashcards, type Card } from '../hooks/useFlashcards';
 import { Flashcard } from './Flashcard';
 
 export interface DashboardProps {
@@ -11,7 +12,7 @@ interface DashboardContentProps {
   onStartOver: () => void;
 }
 
-const DashboardContent: React.FC<DashboardContentProps> = ({ initialCards, onStartOver }) => {
+const DashboardContent: FC<DashboardContentProps> = ({ initialCards, onStartOver }) => {
   const { currentCard, hasNext, nextCard } = useFlashcards(initialCards);
 
   if (!hasNext || !currentCard) {
@@ -47,7 +48,7 @@ const DashboardContent: React.FC<DashboardContentProps> = ({ initialCards, onSta
   );
 };
 
-export const Dashboard: React.FC<DashboardProps> = ({ initialCards }) => {
+export const Dashboard: FC<DashboardProps> = ({ initialCards }) => {
   const [resetKey, setResetKey] = useState(0);
 
   const handleStartOver = () => {
