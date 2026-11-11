@@ -19,7 +19,7 @@ export function shuffleCards<T>(array: T[]): T[] {
   return shuffled;
 }
 
-export function useFlashcards(initialCards: Card[] = cardsData as Card[]) {
+export function useFlashcards(initialCards: Card[] = cardsData as unknown as Card[]) {
   const [cards] = useState<Card[]>(() => shuffleCards(initialCards));
   const [currentIndex, setCurrentIndex] = useState(0);
 
