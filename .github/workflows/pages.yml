@@ -1,4 +1,4 @@
-# Managed by scripts/coding_deploy_setup.py (digest 3257f1f3301f).
+# Managed by scripts/coding_deploy_setup.py (digest a71536baa5db).
 # Running the script again refreshes this file; once it is edited by hand, it is left alone.
 name: Deploy to GitHub Pages
 
@@ -31,7 +31,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
-          node-version: lts/*
+          node-version-file: .nvmrc
           cache: npm
       - run: npm ci
       - run: npm run build -- --base=/french-learning-cards/
