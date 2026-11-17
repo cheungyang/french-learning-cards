@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card } from '../hooks/useFlashcards';
+import type { Card } from '../hooks/useFlashcards';
 import './Flashcard.css';
 
 export interface FlashcardProps {
